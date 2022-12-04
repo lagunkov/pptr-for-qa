@@ -15,7 +15,7 @@ Just working puppeteer setup for manual QA purposes
 + Just clone repo
 + run
 ```
-nmp i
+npm i
 ```
 + copy config_exapmle.json to config.json
 + Replace executablePath with your desirable Chrome exec path
