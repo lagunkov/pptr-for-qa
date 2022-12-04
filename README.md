@@ -12,6 +12,7 @@ This repo can do this for you.
 Just working puppeteer setup for manual QA purposes
 
 # How to setup
++ Setup nodejs -- I suggest to use it through nvm https://github.com/nvm-sh/nvm/blob/master/README.md
 + Just clone repo
 + run
 ```
@@ -21,3 +22,11 @@ npm i
 + Replace executablePath with your desirable Chrome exec path
 
 You can find exec path by going to chrome://version
+
+### That's it
+
+Now you can run 
+```
+  node ./main.js
+```
+Or any other **__example.js file_** to get first steps.
