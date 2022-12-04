@@ -17,7 +17,7 @@ const defaultOptions = {
   ],
 }
 
-export const prepareContext = async function (pathToConfig) {
+export const prepareContext = async function(pathToConfig) {
   const config = JSON.parse(fs.readFileSync(pathToConfig).toString());
   const options = Object.assign({}, defaultOptions, config);
 
