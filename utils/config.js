@@ -3,13 +3,13 @@ import * as fs from 'fs';
 
 function ignoredDefaultArgs(neededArgs) {
   const defaultArgs = puppeteer.defaultArgs();
-  const res = defaultArgs.filter(defaultArg => neededArgs.indexOf(defaultArg) != 0);
+  const res = defaultArgs.filter(defaultArg => neededArgs.indexOf(defaultArg) == -1);
   return res;
 }
 
 const defaultOptions = {
   headless: false,
-  ignoreDefaultArgs: ignoredDefaultArgs(['--no-first-run', '--disable-sync']),
+  ignoreDefaultArgs: ignoredDefaultArgs(['--no-first-run', '--disable-sync', '--headless']),
   defaultViewport: null,
   args: [
     '--no-sandbox',
@@ -17,9 +17,9 @@ const defaultOptions = {
   ],
 }
 
-export const prepareContext = async function(pathToConfig) {
+export const prepareContext = async function(pathToConfig, customOptions = {}) {
   const config = JSON.parse(fs.readFileSync(pathToConfig).toString());
-  const options = Object.assign({}, defaultOptions, config);
+  const options = Object.assign({}, defaultOptions, config, customOptions);
 
   const context = await puppeteer.launch(options);
 
